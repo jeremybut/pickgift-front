@@ -1,18 +1,47 @@
 {
-  "name": "front",
+  "name": "pickgift-front",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "1.0.10"
+    "foreman": "^2.0.0",
+    "react-scripts": "0.7.0"
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "prettier --single-quote --write --trailing-comma all",
+      "git add"
+    ]
   },
   "dependencies": {
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "classnames": "^2.2.5",
+    "concurrently": "^3.1.0",
+    "humps": "^2.0.1",
+    "husky": "^0.14.1",
+    "lint-staged": "^4.0.0",
+    "moment": "^2.18.1",
+    "node-polyglot": "^2.2.2",
+    "node-sass": "^3.13.0",
+    "node-uuid": "^1.4.8",
+    "prettier": "^1.5.2",
+    "react": "^15.4.0",
+    "react-bootstrap": "^0.31.5",
+    "react-dom": "^15.4.0",
+    "react-redux": "^5.0.5",
+    "react-router": "^3.0.0",
+    "redux": "^3.6.0",
+    "redux-form": "^6.8.0",
+    "redux-thunk": "^2.1.0",
+    "sanitize.css": "^4.1.0",
+    "styled-components": "^2.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "prestart": "source .env && npm run stylesheets",
+    "start": "nf start -j Procfile",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "stylesheets": "node-sass ./stylesheets/App.scss -r -o ./src",
+    "prettier": "prettier --single-quote --trailing-comma all --write 'src/**/*.js'",
+    "prettier:check": "prettier --single-quote --trailing-comma all -l 'src/**/*.js'"
   }
 }

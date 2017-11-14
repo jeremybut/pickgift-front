@@ -74,7 +74,7 @@ class Header extends Component {
           </NavigationList>
           <NavigationList navigation>
             <NavigationItem>
-              <Link to="/">Mes villages</Link>
+              <Link to="/villages">Mes villages</Link>
             </NavigationItem>
           </NavigationList>
           <DropdownMenu />

@@ -9,7 +9,12 @@ import App from './App';
 import './index.css';
 import SnacksProvider from './containers/SnacksProvider';
 import I18nProvider from './containers/I18nProvider';
-import HomePage from './containers/HomePage';
+
+import VillagesList from './containers/VillagesList';
+import Village from './containers/Village';
+import EditVillage from './containers/EditVillage';
+import NewVillage from './containers/NewVillage';
+
 import Login from './containers/Login';
 import Signup from './containers/Signup';
 import pickGiftReducer from './reducers';
@@ -38,7 +43,13 @@ ReactDOM.render(
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/" component={App}>
-              <IndexRoute component={HomePage} />
+              <IndexRoute component={VillagesList} />
+              <Route path="villages">
+                <IndexRoute component={VillagesList} />
+                <Route path="/village/:id" component={Village} />
+                <Route path="/village/:id/edit" component={EditVillage} />
+                <Route path="new" component={NewVillage} />
+              </Route>
               <Route path="*" component={FourOFour} />
             </Route>
           </Router>

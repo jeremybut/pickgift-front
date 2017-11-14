@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 import { color, ui } from './colors';
 import { spacing, lineHeight } from './variables';
@@ -18,16 +18,6 @@ export const Container = styled.div`
   margin-right: auto;
   padding-left: ${spacing(2)};
   padding-right: ${spacing(2)};
-
-  ${props =>
-    props.narrow &&
-    css`
-    max-width: 850px;
-  `} ${props =>
-      props.tight &&
-      css`
-    max-width: 600px;
-  `};
 `;
 
 export const AlignCenter = styled.div`

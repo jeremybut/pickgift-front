@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { camelizeKeys } from 'humps';
 
-import VillageForm from '../components/VillageForm';
+import VillageForm from '../components/Villages/VillageForm';
 import withI18n from '../components/Ui/withI18n';
 import { fetchVillage, updateVillage } from '../actions/village';
 

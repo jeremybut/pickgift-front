@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
-import { spacing } from './variables';
+import { spacing, borderRadius } from './variables';
+import { color, ui } from './colors';
 
 export const FormGroup = styled.div`
   margin: 0 0 ${spacing(2)} 0;
@@ -15,14 +16,16 @@ export const Input = styled.input`
   padding: ${spacing(0.75)} ${spacing()};
   background-color: rgba(255,255,255,.15);
   width: 100%;
-  border-radius: 4px;
+  border-radius: ${borderRadius};
   font-size: 1.125rem;
   outline: none;
   transition: background-color 150ms ease;
+  border: 1px solid ${color('grey', 'lighten')};
 
   &:hover,
   &:focus,
   &:active {
+    outline: none;
     background-color: rgba(255,255,255,.25);
   }
 `;

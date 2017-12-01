@@ -7,7 +7,7 @@ import { ui, spacing } from '../ui';
 import logo from '../../static/media/logo.png';
 
 const Wrapper = styled.header`
-  background-color: ${ui('secondary')};
+  background-color: ${ui('primary')};
   width: 100%;
   padding: ${spacing(0.5)};
 `;

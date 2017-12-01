@@ -1,23 +1,24 @@
 const colors = {
   red: {
-    default: '#F52C2C', // red
-  },
-  grey: {
-    default: '#cccccc', // clouds
+    default: '#E01010', // red
   },
   blue: {
-    default: '#3ca2e0', // links
-    dark: '#3F557F', // text
+    default: '#00AAFF', // links
   },
   green: {
-    default: '#22a36e', // green 1
+    default: '#44CC29', // green 1
   },
-  yellow: {
-    default: '#FFBB00', // light yellow
-    warmer: '#FFA200', // secondary brand
+  pink: {
+    default: '#E010E0',
   },
   white: {
     default: '#fff', // white
+  },
+  grey: {
+    default: '#212121', // clouds
+    light: '#707070',
+    lighten: '#9E9E9E',
+    fade: '#F4F4F4',
   },
 };
 
@@ -26,10 +27,13 @@ const color = (name, shade = 'default') => {
 };
 
 const colorsUi = {
-  primary: color('blue'),
-  secondary: color('grey'),
+  primary: color('red'),
+  secondary: color('pink'),
   link: color('blue'),
-  text: color('blue', 'dark'),
+  text: color('grey'),
+  textSecondary: color('grey, light'),
+  disabled: color('grey, lighten'),
+  background: color('grey, fade'),
 };
 
 const ui = name => colorsUi[name];

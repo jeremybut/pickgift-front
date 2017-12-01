@@ -3,35 +3,34 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 
 import { ui, Container, spacing, AlignCenter } from '../ui';
-import logo from '../../static/media/logo.png';
+import logo from '../../static/media/logo-app.svg';
+import background from '../../static/media/authentication-background.jpg';
 import FormCredentials from './../components/Auth/FormCredentials';
 import { loginUser } from '../actions/login';
 import withI18n from '../components/Ui/withI18n';
 
 const Authentication = styled.div`
   min-height: 100vh;
-  background-color: ${ui('primary')};
-  padding-top: ${spacing(3)};
-  padding-bottom: ${spacing(3)};
+  height: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  background-image: url(${background});
+  background-size: cover;
+  background-position: bottom right;
+  background-repeat: no-repeat;
 `;
 
 const Box = styled.div`
-  width: 100%;
-  padding: 15px;
+  width: 50%;
+  padding: 50px 0;
   border-radius: 5px;
-  max-width: ${props => props.maxWidth || '800px'};
-  margin-left: ${props => props.marginLeft || 'auto'};
-  margin-right: ${props => props.marginRight || 'auto'};
-  padding-left: ${props => props.paddingLeft || spacing()};
-  padding-right: ${spacing()};
-  background-color: ${ui('secondary')};
+  max-width: ${props => props.maxWidth || '400px'};
+  background-color: ${ui('background')};
 `;
 
 const Logo = styled.img`
   margin-bottom: ${spacing(2)};
-  height: 96px;
+  height: 72px;
 `;
 
 class Login extends Component {

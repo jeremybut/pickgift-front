@@ -1,17 +1,18 @@
 import styled, { css } from 'styled-components';
 
-import { spacing } from './variables';
+import { spacing, borderRadius } from './variables';
 import { color, ui } from './colors';
 
 export const Button = styled.button`
   padding: ${spacing(.5)} ${spacing()};
   font-weight: bold;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: ${borderRadius};
   background-color: ${ui('primary')};
   outline: none;
+  border: 0;
   transition: background-color 150ms ease;
-  text-shadow: 1px 1px 1px rgba(0,0,0,.25);
+  color: #fff;
 
   &:hover {
     background-color: ${color('yellow', 'warmer')};
@@ -40,5 +41,11 @@ export const Button = styled.button`
     &:hover {
       background-color: transparent;
     }
+  `};
+
+  ${props => props.block && css`
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
   `};
 `;

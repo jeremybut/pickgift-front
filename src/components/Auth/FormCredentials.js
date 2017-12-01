@@ -13,22 +13,16 @@ const Form = styled.form`
 const Title = styled.h1`
 `;
 
-const Subtitle = styled.p`
-`;
-
 const LoginFormCredentials = ({ handleSubmit, btnText, action }) =>
   <Form onSubmit={handleSubmit}>
     {action == 'signup' && <Title>Inscription</Title>}
     {action == 'login' && <Title>Connexion</Title>}
-    <Subtitle>
-      Lorem ipsum
-    </Subtitle>
     <Field
       name="email"
       type="text"
       component={renderField}
       label="Email :"
-      placeholder="nom@email.com"
+      placeholder="jean.dupont@mail.com"
     />
     <Field
       name="password"
@@ -36,13 +30,27 @@ const LoginFormCredentials = ({ handleSubmit, btnText, action }) =>
       component={renderField}
       label="Mot de passe :"
     />
-    {action == 'signup' && <Link to='/login'>Se connecter</Link>}
-    {action == 'login' && <Link to='/signup'>S'enregistrer</Link>}
     <AlignRight>
-      <Button big type="submit" className="next">
+      <Button big block type="submit" className="next">
         {btnText}
       </Button>
     </AlignRight>
+    <p>
+      {action == 'signup' &&
+        <div>
+          <p>Vous avez déjà un compte ?</p>
+          <Link to='/login'>Se connecter</Link>
+        </div>
+      }
+    </p>
+    <p>
+      {action == 'login' &&
+        <div>
+          <p>Vous n’avez pas encore de compte ?</p>
+          <Link to='/signup'>S'enregistrer</Link>
+        </div>
+      }
+    </p>
   </Form>
 ;
 

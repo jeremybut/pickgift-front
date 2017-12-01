@@ -15,6 +15,8 @@ import Village from './containers/Village';
 import EditVillage from './containers/EditVillage';
 import NewVillage from './containers/NewVillage';
 
+import Gift from './containers/Gift';
+
 import Login from './containers/Login';
 import Signup from './containers/Signup';
 import pickGiftReducer from './reducers';
@@ -42,6 +44,7 @@ ReactDOM.render(
           <Router history={browserHistory}>
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/gift" component={Gift} />
             <Route path="/" component={App}>
               <IndexRoute component={VillagesList} />
               <Route path="villages">

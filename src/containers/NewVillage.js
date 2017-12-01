@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { decamelizeKeys } from 'humps';
 
 import { createVillage } from '../actions/village';
-import VillageForm from '../components/VillageForm';
+import VillageForm from '../components/Villages/VillageForm';
 import withSnacks from '../components/Ui/withSnacks';
 import withI18n from '../components/Ui/withI18n';
 

@@ -5,7 +5,6 @@ import VillageFormFirstPage from './VillageFormFirstPage';
 import VillageFormSecondPage from './VillageFormSecondPage';
 import VillageFormThirdPage from './VillageFormThirdPage';
 import VillageFormFourthPage from './VillageFormFourthPage';
-import './style.css';
 
 class VillageForm extends Component {
   constructor(props) {

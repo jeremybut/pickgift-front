@@ -5,8 +5,6 @@ import { color, ui } from './colors';
 
 export const Button = styled.button`
   padding: ${spacing(.5)} ${spacing()};
-  font-weight: bold;
-  text-transform: uppercase;
   border-radius: ${borderRadius};
   background-color: ${ui('primary')};
   outline: none;

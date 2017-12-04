@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { Link as RawLink } from 'react-router';
 
-import avatar from '../../static/media/flat-avatar.png';
-import { logout } from '../actions/logout';
-import { ui, spacing } from '../ui';
+import avatar from '../../../static/media/flat-avatar.png';
+import { logout } from '../../actions/logout';
+import { ui, spacing } from '../../ui';
 
 const NavigationList = styled.ul`
   display: block;

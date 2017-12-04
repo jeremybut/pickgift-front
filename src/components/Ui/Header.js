@@ -3,13 +3,12 @@ import { Link as RawLink } from 'react-router';
 import styled, { css } from 'styled-components';
 
 import DropdownMenu from './DropdownMenu';
-import { ui, spacing } from '../ui';
-import logo from '../../static/media/logo.png';
+import { ui, spacing } from '../../ui';
+import logo from '../../../static/media/logo-app-white.svg';
 
 const Wrapper = styled.header`
   background-color: ${ui('primary')};
   width: 100%;
-  padding: ${spacing(0.5)};
 `;
 
 const Nav = styled.nav`
@@ -43,11 +42,11 @@ const NavigationList = styled.ul`
 `;
 
 const Logo = styled.img`
-  height: 50px;
+  height: 48px;
 `;
 
 const NavigationItem = styled.li`
-  margin-right: ${spacing(1.5)};
+  margin-right: ${spacing(1)};
   list-style: none;
 `;
 
@@ -84,5 +83,4 @@ class Header extends Component {
   }
 }
 
-
-export default Header;
+export { Header };

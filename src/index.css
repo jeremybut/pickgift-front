@@ -13,6 +13,10 @@ button {
   line-height: 1.8;
 }
 
+a {
+  text-decoration: none;
+}
+
 ol.progtrckr {
   list-style-type: none;
   padding: 0;

@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { browserHistory } from 'react-router';
 
-import Header from './components/Header';
+import { Header } from './components/Ui/Header';
+import { DropdownMenu } from './components/Ui/DropdownMenu';
 import './App.css';
 
 class App extends Component {

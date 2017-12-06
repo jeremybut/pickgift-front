@@ -16,7 +16,7 @@ const NavigationList = styled.ul`
   padding: ${spacing(.5)} 0;
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 8px 24px rgba(0,0,0,.35);
+  box-shadow: 0 8px 24px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.12);
   text-align: right;
   z-index: 10;
 `;
@@ -27,12 +27,13 @@ const NavigationItem = styled.li`
 
 const Link = styled(RawLink)`
   display: block;
-  padding: ${spacing(.5)} ${spacing()};
+  padding: ${spacing(.25)} ${spacing()};
   color: ${ui('text')};
-  transition: background-color 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease;
 
   &:hover {
-    background-color: rgba(0,0,0,.06);
+    background-color: ${ui('primary')};
+    color: #fff;
   }
 `;
 
@@ -52,13 +53,10 @@ const UserProfile = styled.div`
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  box-shadow: 0 2px 4px rgba(0,0,0,.35);
-  margin-right: 15px;
-
 `;
 
 const Avatar = styled.img`
-  height: 50px;
+  height: 48px;
 `;
 
 class DropdownMenu extends Component {

@@ -6,7 +6,7 @@ import values from 'lodash/values';
 import { camelizeKeys } from 'humps';
 import { Link } from 'react-router';
 
-import { Container, spacing } from '../ui';
+import { Container, spacing, Button } from '../ui';
 import { fetchVillages } from '../actions/villages';
 
 const Wrapper = styled.div`
@@ -46,7 +46,21 @@ class HomePage extends Component {
 
     return (
       <Container>
-        <Link to="/villages/new">New village</Link>
+        <ul>
+          <li>
+            <p>Créez un village.</p>
+          </li>
+          <li>
+            <p>Invitez vos villageois.</p>
+          </li>
+          <li>
+            <p>Grattez votre ticket.</p>
+          </li>
+        </ul>
+
+        <Link to="/villages/new">
+          <Button>New village</Button>
+        </Link>
         <Wrapper>
           <Villages>
             {camelizeKeys(villages).map((v, index) =>

@@ -9,35 +9,27 @@ import logo from '../../../static/media/logo-app-white.svg';
 const Wrapper = styled.header`
   background-color: ${ui('primary')};
   width: 100%;
+  padding: 0 ${spacing()};
 `;
 
 const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const NavigationList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
-  ${props =>
-    props.logo &&
-    css`
-    margin-right: ${spacing(2)};
-
-    li {
-      margin-left: 0;
-      list-style: none;
-    }
-  `};
+  padding: 0;
 
   ${props =>
     props.navigation &&
     css`
     flex: 1;
+    padding-left: ${spacing(2)};
   `};
 `;
 
@@ -64,7 +56,7 @@ class Header extends Component {
     return (
       <Wrapper>
         <Nav>
-          <NavigationList logo>
+          <NavigationList>
             <NavigationItem>
               <Link to="/">
                 <Logo src={logo} alt="Logo PickGift" />

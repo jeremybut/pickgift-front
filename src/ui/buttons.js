@@ -13,7 +13,7 @@ export const Button = styled.button`
   color: #fff;
 
   &:hover {
-    background-color: ${color('yellow', 'warmer')};
+    background-color: ${ui('primary600')};
   }
 
   ${props => props.big && css`

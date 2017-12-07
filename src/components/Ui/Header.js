@@ -3,51 +3,42 @@ import { Link as RawLink } from 'react-router';
 import styled, { css } from 'styled-components';
 
 import DropdownMenu from './DropdownMenu';
-import { ui, spacing } from '../ui';
-import logo from '../../static/media/logo.png';
+import { ui, spacing } from '../../ui';
+import logo from '../../../static/media/logo-app-white.svg';
 
 const Wrapper = styled.header`
   background-color: ${ui('primary')};
   width: 100%;
-  padding: ${spacing(0.5)};
+  padding: 0 ${spacing()};
 `;
 
 const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 `;
 
 const NavigationList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-
-  ${props =>
-    props.logo &&
-    css`
-    margin-right: ${spacing(2)};
-
-    li {
-      margin-left: 0;
-      list-style: none;
-    }
-  `};
+  padding: 0;
 
   ${props =>
     props.navigation &&
     css`
     flex: 1;
+    padding-left: ${spacing(2)};
   `};
 `;
 
 const Logo = styled.img`
-  height: 50px;
+  height: 48px;
 `;
 
 const NavigationItem = styled.li`
-  margin-right: ${spacing(1.5)};
+  margin-right: ${spacing(1)};
   list-style: none;
 `;
 
@@ -65,7 +56,7 @@ class Header extends Component {
     return (
       <Wrapper>
         <Nav>
-          <NavigationList logo>
+          <NavigationList>
             <NavigationItem>
               <Link to="/">
                 <Logo src={logo} alt="Logo PickGift" />
@@ -84,5 +75,4 @@ class Header extends Component {
   }
 }
 
-
-export default Header;
+export { Header };

@@ -4,8 +4,6 @@ import { Form } from 'formsy-react';
 import { SingleDatePicker } from 'react-dates';
 import TagsInput from 'react-tagsinput';
 
-import ValidatedTextField from '../Ui/ValidatedTextField';
-
 class VillageForm extends Component {
   constructor(props) {
     super(props);
@@ -49,12 +47,12 @@ class VillageForm extends Component {
 
     const { handleSubmit, village } = this.props;
     return (
-      <Form
+      <form
         onSubmit={handleSubmit}
         onValid={this.enableFormSubmission}
         onInvalid={this.disableFormSubmission}
       >
-        <ValidatedTextField
+        <input
           name="displayName"
           id="displayName"
           label='Village name'
@@ -90,7 +88,7 @@ class VillageForm extends Component {
           onFocusChange={({ focused }) => this.setState({ maxInscriptionDateFocus: focused })}
         />
         <button disabled={!canSubmitForm} type="submit">Valider</button>
-      </Form>
+      </form>
     );
   }
 }

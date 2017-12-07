@@ -1,38 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled from 'styled-components';
 
-import { ui, Container, spacing, AlignCenter } from '../ui';
-import logo from '../../static/media/logo.png';
+import { Container, AlignCenter } from '../ui';
+import logo from '../../static/media/logo-app.svg';
 import FormCredentials from '../components/Auth/FormCredentials';
 import { signup } from '../actions/signup';
 import withI18n from '../components/Ui/withI18n';
-
-const Authentication = styled.div`
-  min-height: 100vh;
-  background-color: ${ui('primary')};
-  padding-top: ${spacing(3)};
-  padding-bottom: ${spacing(3)};
-  display: flex;
-  align-items: center;
-`;
-
-const Box = styled.div`
-  width: 100%;
-  padding: 15px;
-  border-radius: 5px;
-  max-width: ${props => props.maxWidth || '800px'};
-  margin-left: ${props => props.marginLeft || 'auto'};
-  margin-right: ${props => props.marginRight || 'auto'};
-  padding-left: ${props => props.paddingLeft || spacing()};
-  padding-right: ${spacing()};
-  background-color: ${ui('secondary')};
-`;
-
-const Logo = styled.img`
-  margin-bottom: ${spacing(2)};
-  height: 96px;
-`;
+import { Authentication, Box, Logo } from '../components/Auth';
 
 class Signup extends Component {
   constructor(props) {
@@ -70,7 +44,7 @@ class Signup extends Component {
               </AlignCenter>
               <FormCredentials
                 onSubmit={this.handleFormSubmit}
-                btnText='Valider'
+                btnText='S’inscrire'
                 action='signup'
               />
             </Box>

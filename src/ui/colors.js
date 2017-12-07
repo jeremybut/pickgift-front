@@ -1,6 +1,7 @@
 const colors = {
   red: {
     default: '#E01010', // red
+    darken: '#BF0D1C',
   },
   blue: {
     default: '#00AAFF', // links
@@ -28,6 +29,7 @@ const color = (name, shade = 'default') => {
 
 const colorsUi = {
   primary: color('red'),
+  primary600: color('red, darken'),
   secondary: color('pink'),
   link: color('blue'),
   text: color('grey'),

@@ -1,12 +1,10 @@
 import styled, { css } from 'styled-components';
 
 import { spacing, borderRadius } from './variables';
-import { color, ui } from './colors';
+import { ui } from './colors';
 
 export const Button = styled.button`
   padding: ${spacing(.5)} ${spacing()};
-  font-weight: bold;
-  text-transform: uppercase;
   border-radius: ${borderRadius};
   background-color: ${ui('primary')};
   outline: none;
@@ -15,7 +13,7 @@ export const Button = styled.button`
   color: #fff;
 
   &:hover {
-    background-color: ${color('yellow', 'warmer')};
+    background-color: ${ui('primary600')};
   }
 
   ${props => props.big && css`

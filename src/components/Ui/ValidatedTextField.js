@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HOC as withValidation } from 'formsy-react';
+import { HOC } from 'formsy-react';
 
 import withI18n from './withI18n';
 
@@ -68,4 +68,4 @@ class ValidatedTextField extends Component {
   }
 }
 
-export default withValidation(withI18n(ValidatedTextField));
+export default HOC(withI18n(ValidatedTextField));

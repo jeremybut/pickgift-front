@@ -13,11 +13,11 @@ export const List = styled.ul`
 `;
 
 export const Container = styled.div`
-  width: 100%;
+  width: 800px;
   margin-left: auto;
   margin-right: auto;
-  padding-left: ${spacing(2)};
-  padding-right: ${spacing(2)};
+  padding-left: ${spacing(1)};
+  padding-right: ${spacing(1)};
 `;
 
 export const AlignCenter = styled.div`

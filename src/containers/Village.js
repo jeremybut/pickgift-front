@@ -6,10 +6,6 @@ import withI18n from '../components/Ui/withI18n';
 import { fetchVillage } from '../actions/village';
 
 class Village extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.dispatchFetchVillage(this.props.params.id);
   }

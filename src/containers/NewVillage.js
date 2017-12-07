@@ -14,7 +14,7 @@ class NewVillage extends Component {
   }
 
   createVillage(village) {
-    const { canSubmitForm: omit, ...payload } = village;
+    const { ...payload } = village;
     this.props.dispatchCreateVillage(decamelizeKeys(payload));
   }
 

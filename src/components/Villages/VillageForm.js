@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Form } from 'formsy-react';
+import { SingleDatePicker } from 'react-dates';
+import TagsInput from 'react-tagsinput';
 
-import VillageFormFirstPage from './VillageFormFirstPage';
-import VillageFormSecondPage from './VillageFormSecondPage';
-import VillageFormThirdPage from './VillageFormThirdPage';
-import VillageFormFourthPage from './VillageFormFourthPage';
-import './style.css';
+import ValidatedTextField from '../Ui/ValidatedTextField';
 
 class VillageForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: 1,
-      npages: 4,
       emails: [],
       eventDate: null,
       eventDateFocused: false,
@@ -20,18 +17,22 @@ class VillageForm extends Component {
       maxInscriptionDateFocused: false,
     };
 
-    this.nextPage = this.nextPage.bind(this);
-    this.previousPage = this.previousPage.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.onTagsChange = this.onTagsChange.bind(this);
+    this.enableFormSubmission = this.enableFormSubmission.bind(this);
+    this.disableFormSubmission = this.disableFormSubmission.bind(this);
   }
 
-  nextPage() {
-    this.setState({ page: this.state.page + 1 });
+  enableFormSubmission() {
+    this.setState({
+      canSubmitForm: true,
+    });
   }
 
-  previousPage() {
-    this.setState({ page: this.state.page - 1 });
+  disableFormSubmission() {
+    this.setState({
+      canSubmitForm: false,
+    });
   }
 
   handleFormSubmit(payload) {
@@ -42,76 +43,54 @@ class VillageForm extends Component {
     this.setState({ emails: [ ...this.state.emails, emails ] });
   }
 
-  renderForm(page) {
-    switch (page) {
-      case 1:
-        return (<VillageFormFirstPage
-          onSubmit={this.nextPage}
-          current={1}
-          total={4}
-        />);
-      case 2:
-        return (<VillageFormSecondPage
-          previousPage={this.previousPage}
-          onTagsChange={this.onTagsChange}
-          onSubmit={this.nextPage}
-          emails={this.state.emails}
-          current={2}
-          total={4}
-        />);
-      case 3:
-        return (<VillageFormThirdPage
-          previousPage={this.previousPage}
-          onSubmit={this.nextPage}
-          label='Event Date'
-          eventDate={this.state.eventDate}
-          eventDateFocused={this.state.eventDateFocused}
-          onEventDateFocusChange={({ focused }) => this.setState({ eventDateFocused: focused })}
-          onEventDateChange={date => this.setState({ eventDate: date })}
-          current={3}
-          total={4}
-        />);
-      case 4:
-        return (<VillageFormFourthPage
-          previousPage={this.previousPage}
-          onSubmit={this.handleFormSubmit}
-          label='Max Inscription Date'
-          maxInscriptionDate={this.state.maxInscriptionDate}
-          maxInscriptionDateFocused={this.state.maxInscriptionDateFocused}
-          onMaxInscriptionDateFocusChange={({ focused }) => this.setState({ maxInscriptionDateFocused: focused })}
-          onMaxInscriptionDateChange={date => this.setState({ maxInscriptionDate: date })}
-          current={4}
-          total={4}
-        />);
-      default:
-        return '';
-      }
-    }
-
   render() {
-    const { page, npages } = this.state;
-    const progressStyle = {
-      width: `${(100 / npages) * page}%`,
-    };
+    const { canSubmitForm } = this.state;
+    const EMAIL_VALIDATION_REGEX = /^[-a-z0-9~!$%^&*_=+}{'?]+(\.[-a-z0-9~!$%^&*_=+}{'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
 
+    const { handleSubmit, village } = this.props;
     return (
-      <div className="container-full-bg head">
-        <div className="p-village-form">
-          <div className="simform">
-            <div className="simform-inner">
-              <ol className="questions">
-                { this.renderForm(page) }
-              </ol>
-              <div className="controls">
-                <div
-                  className="progress"
-                  style={progressStyle}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Form
+        onSubmit={handleSubmit}
+        onValid={this.enableFormSubmission}
+        onInvalid={this.disableFormSubmission}
+      >
+        <ValidatedTextField
+          name="displayName"
+          id="displayName"
+          label='Village name'
+          value={village.displayName}
+          required
+        />
+        <span>
+          <label htmlFor='Invite your villagers'>Invite your villagers</label>
+        </span>
+        <TagsInput
+          value={this.state.emails}
+          addKeys={[9, 13, 32, 186, 188]}
+          onChange={this.onTagsChange}
+          validationRegex={EMAIL_VALIDATION_REGEX}
+          placeholder=''
+          pasteSplit={data => {
+            return data.replace(/[\r\n,;]/g, ' ').split(' ').map(d => d.trim())
+          }}
+          addOnPaste
+          autoFocus
+          onlyUnique
+        />
+        <SingleDatePicker
+          date={this.props.eventDate}
+          onDateChange={date => this.setState({ eventDate: date })}
+          focused={this.eventDateFocused}
+          onFocusChange={({ focused }) => this.setState({ eventDateFocus: focused })}
+        />
+        <SingleDatePicker
+          date={this.props.maxInscriptionDate}
+          onDateChange={date => this.setState({ maxInscriptionDate: date })}
+          focused={this.maxInscriptionDateFocused}
+          onFocusChange={({ focused }) => this.setState({ maxInscriptionDateFocus: focused })}
+        />
+        <button disabled={!canSubmitForm} type="submit">Valider</button>
+      </Form>
     );
   }
 }

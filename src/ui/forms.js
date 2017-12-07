@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { spacing, borderRadius } from './variables';
-import { color, ui } from './colors';
+import { color } from './colors';
 
 export const FormGroup = styled.div`
   margin: 0 0 ${spacing(2)} 0;

@@ -12,10 +12,6 @@ const Container = styled.div`
 `;
 
 class Gift extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <Container>
